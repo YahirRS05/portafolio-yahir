@@ -33,7 +33,7 @@
   .ubicacion{color:var(--muted);font-size:.95rem;display:flex;align-items:center;gap:6px}
   header h1{font-size:clamp(2.2rem,6vw,3.4rem);line-height:1.1;letter-spacing:-.02em}
   header .role{color:var(--accent);font-size:1.15rem;margin:10px 0 18px}
-  header p{color:var(--muted);max-width:60ch}
+  header p{color:var(--muted);max-width:60ch;white-space:pre-line}
   .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
   .btn{display:inline-block;padding:10px 18px;border-radius:8px;border:1px solid var(--line);color:var(--text);font-weight:600}
   .btn.primary{background:var(--accent);color:#101014;border-color:var(--accent)}
@@ -83,7 +83,7 @@ const DATA = {
   titulo: "T.S.U en Desarollo de Software y multiplataforma, Estudiante de Ing. en Desarrollo Gestion de Software",
   foto: "imagenes/Yahir.png",           
   ubicacion: "Nicolas Romero, Estado De México, México", 
-  resumen: "No creas que alcanzar tus metas depende únicamente de lo que aprendes o de tus propios méritos. Depende de tu disposición para hacer las cosas, de tu esfuerzo y, sobre todo, de poner a Dios en primer lugar, Juan 15:5",
+  resumen: "No creas que alcanzar tus metas depende únicamente de lo que aprendes o de tus propios méritos. Depende de tu disposición para hacer las cosas, de tu esfuerzo y, sobre todo, de poner a Dios en primer lugar.\nJuan 15:5",
   cv: "documentos/cv.pdf",     
 
    contacto: {
@@ -112,7 +112,6 @@ const DATA = {
     { nombre: "Tienda web (Proyecto Tienda)", descripcion: "E-commerce full-stack con panel de administración para gestionar productos y categorías. Frontend y backend separados, con datos e imágenes persistentes. Proyecto en equipo de 5 integrantes.", tecnologias: ["Next.js", "React", "TypeScript", "Strapi v5", "SQLite"], imagen:"imagenes/tienda.png", demo: "", codigo: "https://github.com/CristianOG1/gestion-proyecto-tienda" }
   ]
 };
-
 
 
 
