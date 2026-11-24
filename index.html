@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#18181b">
+<title>Tu Nombre — Portafolio de Evidencias</title>
+<meta name="description" content="Portafolio de evidencias y currículum web de Tu Nombre.">
+<style>
+  :root{
+    --bg:#18181b; --surface:#202024; --line:#34343a;
+    --text:#ececf1; --muted:#a1a1ab; --accent:#8ab4ff;
+  }
+  *{box-sizing:border-box;margin:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--text);font:16px/1.65 "Segoe UI",system-ui,-apple-system,Roboto,sans-serif}
+  a{color:var(--accent);text-decoration:none}
+  a:hover{text-decoration:underline}
+  a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+  .wrap{max-width:860px;margin:0 auto;padding:0 22px}
+
+  nav{position:sticky;top:0;background:rgba(24,24,27,.9);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);z-index:5}
+  nav .wrap{display:flex;gap:22px;overflow-x:auto;padding-top:14px;padding-bottom:14px}
+  nav a{color:var(--muted);white-space:nowrap;font-size:.95rem}
+  nav a:hover{color:var(--text);text-decoration:none}
+
+  header{padding:72px 0 40px}
+  .hero{display:flex;gap:36px;align-items:center;flex-wrap:wrap-reverse}
+  .hero .texto{flex:1 1 380px;min-width:0}
+  .perfil{flex:0 0 auto;display:flex;flex-direction:column;align-items:center;gap:12px;margin:0 auto}
+  .foto{width:190px;height:190px;border-radius:50%;overflow:hidden;border:2px solid var(--line);background:var(--surface);display:grid;place-items:center;color:var(--muted);font-size:2.6rem;font-weight:600}
+  .foto img{width:100%;height:100%;object-fit:cover;display:block}
+  .ubicacion{color:var(--muted);font-size:.95rem;display:flex;align-items:center;gap:6px}
+  header h1{font-size:clamp(2.2rem,6vw,3.4rem);line-height:1.1;letter-spacing:-.02em}
+  header .role{color:var(--accent);font-size:1.15rem;margin:10px 0 18px}
+  header p{color:var(--muted);max-width:60ch}
+  .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+  .btn{display:inline-block;padding:10px 18px;border-radius:8px;border:1px solid var(--line);color:var(--text);font-weight:600}
+  .btn.primary{background:var(--accent);color:#101014;border-color:var(--accent)}
+  .btn:hover{text-decoration:none;border-color:var(--accent)}
+
+  section{padding:44px 0;border-top:1px solid var(--line)}
+  h2{font-size:1.5rem;margin-bottom:22px}
+  .item{padding:0 0 22px 18px;border-left:2px solid var(--line);margin-bottom:6px}
+  .item h3{font-size:1.05rem}
+  .item .meta{color:var(--muted);font-size:.9rem}
+  .item p{margin-top:6px;color:var(--muted)}
+
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .chip{padding:5px 12px;border:1px solid var(--line);border-radius:999px;background:var(--surface);font-size:.92rem}
+  .group{margin-bottom:22px}
+  .group h3{font-size:.95rem;color:var(--muted);font-weight:600;margin-bottom:10px}
+
+  .projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden;display:flex;flex-direction:column}
+  .card .thumb{aspect-ratio:16/9;background:#2a2a30;display:grid;place-items:center;color:var(--muted);font-size:.85rem}
+  .card .thumb img{width:100%;height:100%;object-fit:cover;display:block}
+  .card .body{padding:16px;display:flex;flex-direction:column;gap:10px;flex:1}
+  .card h3{font-size:1.05rem}
+  .card p{color:var(--muted);font-size:.95rem}
+  .card .links{margin-top:auto;display:flex;gap:14px;font-size:.92rem}
+
+  ul.plain{list-style:none;padding:0}
+  ul.plain li{padding:10px 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+  footer{padding:36px 0 60px;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<nav><div class="wrap" id="nav"></div></nav>
+<header><div class="wrap" id="hero"></div></header>
+<main class="wrap" id="main"></main>
+<footer><div class="wrap" id="foot"></div></footer>
+
+<script>
+  
+
+
+const DATA = {
+  nombre: "Mauricio Yahir Roa Sánchez",
+  titulo: "T.S.U en Desarollo de Software y multiplataforma, Estudiante de Ing. en Desarrollo Gestion de Software",
+  foto: "imagenes/Yahir.png",           
+  ubicacion: "Nicolas Romero, Estado De México, México", 
+  resumen: "No creas que lograr algo depende de lo que aprendes y de tus propios meritos,lograr algo depende de la disposicion de hacer las cosas y de poner primeramente a Dios",
+  cv: "documentos/cv.pdf",     
+
+   contacto: {
+    correo: "mau.rs0309@gmail.com",
+    github: "https://github.com/YahirRS05",
+    linkedin: "https://www.linkedin.com/in/yahir-s%C3%A1nchez-86957a36a/",
+    telefono: "5623967548"                        
+  },
+
+ estudios: [
+    { titulo: "Tecnico en Programacion", lugar: "Cecytem Nicolas Romero II", periodo: "2020 – 2023",},
+    { titulo: "T.S.U. en Desarollo de Software y Multiplataforma", lugar: "Universidad Tecnologica Fidel Velazquez", periodo: "2023 - 2025"},
+    { titulo: "Estudiante de Ing. en Desarrollo y Gestión de Software", lugar: "Universidad Tecnologica Fidel Velazquez", periodo: "2023 – 2027"},
+   ],
+
+  habilidades: {
+    "Lenguajes":     ["JavaScript", "Python", "Java"],
+    "Web":           ["HTML", "CSS", "React"],
+    "Herramientas":  ["Git", "GitHub", "VS Code"],
+    "Idiomas":       ["Español (nativo)", "Inglés (intermedio)"]
+  },
+
+  proyectos: [
+    { nombre: "Reservas para barbería", descripcion: "Sistema web de reservas de citas para barberías, con panel de administración: calendario por barbero, horarios y días cerrados configurables, y resumen de ocupación semanal. Proyecto en equipo.", tecnologias: ["React", "JavaScript", "Supabase"], imagen: "imagenes/barberia.png", demo: "", codigo: "https://github.com/CristianOG1/reservas-barberia" },
+    { nombre: "Delivery App", descripcion: "Aplicación de pedidos a domicilio. Proyecto en equipo. Describe aquí qué hace y cuál fue tu parte.", tecnologias: ["flutter","dart"], imagen: "imagenes/delivery.png", demo: "", codigo: "https://github.com/CristianOG1/delivery-app" },
+    { nombre: "Tienda web (Proyecto Tienda)", descripcion: "E-commerce full-stack con panel de administración para gestionar productos y categorías. Frontend y backend separados, con datos e imágenes persistentes. Proyecto en equipo de 5 integrantes.", tecnologias: ["Next.js", "React", "TypeScript", "Strapi v5", "SQLite"], imagen:"imagenes/tienda.png", demo: "", codigo: "https://github.com/CristianOG1/gestion-proyecto-tienda" }
+  ]
+};
+
+
+
+
+
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const C = DATA.contacto;
+
+document.title = DATA.nombre + " — Portafolio de Evidencias";
+
+const secciones = [
+  ["estudios", "Estudios", DATA.estudios.length],
+  ["habilidades", "Habilidades", Object.keys(DATA.habilidades).length],
+  ["proyectos", "Proyectos", DATA.proyectos.length],
+  ["contacto", "Contacto", 1]
+].filter(s => s[2]);
+
+$("nav").innerHTML = secciones.map(s => `<a href="#${s[0]}">${s[1]}</a>`).join("");
+
+const iniciales = DATA.nombre.split(" ").filter(Boolean).slice(0, 2).map(p => p[0].toUpperCase()).join("");
+
+$("hero").innerHTML = `
+  <div class="hero">
+    <div class="texto">
+      <h1>${esc(DATA.nombre)}</h1>
+      <div class="role">${esc(DATA.titulo)}</div>
+      <p>${esc(DATA.resumen)}</p>
+      <div class="actions">
+        ${DATA.cv ? `<a class="btn primary" href="${esc(DATA.cv)}" download>Descargar CV</a>` : ""}
+        <a class="btn" href="#proyectos">Ver proyectos</a>
+        ${C.correo ? `<a class="btn" href="mailto:${esc(C.correo)}">Escríbeme</a>` : ""}
+      </div>
+    </div>
+    <div class="perfil">
+      <div class="foto">${DATA.foto ? `<img src="${esc(DATA.foto)}" alt="Foto de ${esc(DATA.nombre)}" onerror="this.parentNode.textContent='${esc(iniciales)}'">` : esc(iniciales)}</div>
+      ${DATA.ubicacion ? `<div class="ubicacion"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s-7-6.2-7-11a7 7 0 1 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>${esc(DATA.ubicacion)}</div>` : ""}
+    </div>
+  </div>`;
+
+const html = {
+  estudios: () => DATA.estudios.map(e => `
+    <div class="item"><h3>${esc(e.titulo)}</h3>
+    <div class="meta">${esc(e.lugar)} · ${esc(e.periodo)}</div>
+    ${e.detalle ? `<p>${esc(e.detalle)}</p>` : ""}</div>`).join(""),
+
+  habilidades: () => Object.entries(DATA.habilidades).map(([g, l]) => `
+    <div class="group"><h3>${esc(g)}</h3>
+    <div class="chips">${l.map(x => `<span class="chip">${esc(x)}</span>`).join("")}</div></div>`).join(""),
+
+  proyectos: () => `<div class="projects">${DATA.proyectos.map(p => `
+    <article class="card">
+      <div class="thumb">${p.imagen ? `<img src="${esc(p.imagen)}" alt="Captura de ${esc(p.nombre)}" loading="lazy">` : "Sin imagen"}</div>
+      <div class="body">
+        <h3>${esc(p.nombre)}</h3>
+        <p>${esc(p.descripcion)}</p>
+        <div class="chips">${(p.tecnologias||[]).map(t => `<span class="chip">${esc(t)}</span>`).join("")}</div>
+        <div class="links">
+          ${p.demo ? `<a href="${esc(p.demo)}" target="_blank" rel="noopener">Ver demo</a>` : ""}
+          ${p.codigo ? `<a href="${esc(p.codigo)}" target="_blank" rel="noopener">Ver código</a>` : ""}
+        </div>
+      </div>
+    </article>`).join("")}</div>`,
+
+  contacto: () => `<ul class="plain">
+    ${C.correo ? `<li><span>Correo</span><a href="mailto:${esc(C.correo)}">${esc(C.correo)}</a></li>` : ""}
+    ${C.github ? `<li><span>GitHub</span><a href="${esc(C.github)}" target="_blank" rel="noopener">${esc(C.github.replace("https://",""))}</a></li>` : ""}
+    ${C.linkedin ? `<li><span>LinkedIn</span><a href="${esc(C.linkedin)}" target="_blank" rel="noopener">${esc(C.linkedin.replace("https://",""))}</a></li>` : ""}
+    ${C.telefono ? `<li><span>Teléfono</span><span>${esc(C.telefono)}</span></li>` : ""}
+  </ul>`
+};
+
+$("main").innerHTML = secciones.map(s => `<section id="${s[0]}"><h2>${s[1]}</h2>${html[s[0]]()}</section>`).join("");
+$("foot").textContent = "© " + new Date().getFullYear() + " " + DATA.nombre;
+</script>
+</body>
+</html>
